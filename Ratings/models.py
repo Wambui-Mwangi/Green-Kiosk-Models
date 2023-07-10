@@ -10,3 +10,7 @@ class Reviews(models.Model):
 
     def __str__(self):
         return self.sender
+
+    class Meta:
+        verbose_name = 'Notification'
+        verbose_name_plural = 'Notifications'

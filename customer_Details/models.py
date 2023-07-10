@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Customers(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     first_Name = models.CharField(max_length=32)
     last_Name = models.CharField(max_length=32)
     phone_Number = models.PositiveIntegerField()
@@ -12,3 +14,7 @@ class Customers(models.Model):
     
     def __str__(self):
         return f'{self.first_Name} {self.last_Name}'
+    
+    class Meta:
+        verbose_name = 'Customer'
+        verbose_name_plural = 'Customers'

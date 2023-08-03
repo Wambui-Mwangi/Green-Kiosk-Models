@@ -1,3 +1,57 @@
-.upload_form{
+/* .upload_form{
     color: green;
+    margin-left: 30%;
+} */
+ 
+/* product_upload.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.upload_form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.upload_form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.upload_form input[type="text"],
+.upload_form select,
+.upload_form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.upload_form input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.upload_form button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.upload_form button[type="submit"]:hover {
+    background-color: #45a049;
 }

@@ -1,20 +1,21 @@
 from django.shortcuts import render
 from .forms import ProductCartForm
 from Cart_Details.models import Product
+from Cart_Details.models import Cart
 
 
-# Create your views here.
-# def product_cart(request):                      #the request represents a http request
-#     if request.method == 'POST':
-#         uploaded_product = request.FILES["image"]
-#         form = ProductCartForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#     else:
-#         form = ProductCartForm()
+def product_cart(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    if created:
+        cart.save()
+    cart.products.add(product)
+    context = {
+        'product': product,
+        'cart' : Cart,
+        'added_to_cart' : True,
+    }
+    return render(request, "Cart_Details/product_cart.html", context)
+    # return render (request, "Cart_Details/product_cart.html", {"products": product})
 
-#     return render(request, "Cart_Details/product_cart.html", {"form": form})
 
-def product_cart(request):
-    products = Product.objects.all()
-    return render (request, "Cart_Details/product_cart.html", {"products": products})

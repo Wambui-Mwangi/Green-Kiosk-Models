@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/products_list.css'%}">
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{%static 'css/products_list.css'%}">
 </head>
 <body>
-    <table>
-        <th>
-            <td>Title</td>
-            <td>Description</td>
-            <td>Price</td>
-            <td>Product Details</td>
-        </th>
 
-        {%for product in products%} 
-        <tr>
-        <td>{{product.name}}</td>
-        <td>{{product.description}}</td>
-        <td>{{product.price}}</td>
-        <td><a href = "{% url 'product_detail_view' id=product.id %}">View Product</a></td>   
-        </tr>  
+    <div>
+        {% for product in products %}
+            <div class="product-card">
 
-        {%endfor%}
-    </table>
+                <h4 class="product-title">{{ product.name }}</h4>
+                <img class="product-image" src="{{ product.image.url }}" alt="Image">
+                <p class="product-description">{{ product.description }}</p>
+                <span class="product-price">Price: ${{ product.price }}</span>
+                <a href="{% url 'product_detail_view' id=product.id %}" class="view-product-link">View Product</a>
+                <a href="{% url 'product_edit_view' id=product.id %}" class="view-product-link">Edit Product</a>
+
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

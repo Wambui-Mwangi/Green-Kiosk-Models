@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Customers(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    image = models.ImageField()
     first_Name = models.CharField(max_length=32)
     last_Name = models.CharField(max_length=32)
     phone_Number = models.PositiveIntegerField()

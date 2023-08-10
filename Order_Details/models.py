@@ -9,8 +9,6 @@ class Order(models.Model):
     payment = models.OneToOneField(Payment, models.PROTECT, null=True,related_name='orders')
     basket = models.ForeignKey(Cart, on_delete=models.CASCADE)
     shipment = models.ForeignKey(Shipment, related_name='related_shipment', on_delete=models.CASCADE)
-
-    # shipment = models.ForeignKey(Shipment, on_delete=models.CASCADE)
     custom = models.ManyToManyField(Customers)
     customer = models.CharField(max_length=50)
     order_Number = models.IntegerField()

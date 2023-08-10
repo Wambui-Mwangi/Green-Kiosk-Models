@@ -1,21 +1,42 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/products_list.css'%}"> -->
+ 
 </head>
 <body>
     <div>
-    {% for product in products %}
     <h4>{{ product.name }}</h4>
     <img src="{{ product.image.url }}" alt="Image">
     <p>{{ product.description }}</p>
     <span>{{ product.price }}</span>
-    <button>Add to Cart</button>
-    {% endfor %}
+
 </div>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <h1>Cart</h1>
+    {% if cart.products.exists %}
+        <ul>
+            {% for product in cart.products.all %}
+                <li>{{ product.name }} - {{ product.price }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total: {{ cart.total }}</p>
+    {% else %}
+        <p>Cart is empty.</p>
+    {% endif %}
+</body>
 </html>
+

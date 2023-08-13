@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.details-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.customer-image {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.customer-name {
+    color: #33aa33;
+    margin: 0;
+}
+
+.customer-info {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-description {
+    color: #333;
+    margin-top: 15px;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #33aa33;
+}
+.edit-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+}
+

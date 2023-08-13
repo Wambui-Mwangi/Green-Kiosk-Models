@@ -3,13 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Order Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/orders_list.css' %}">
 </head>
 <body>
-    <h4>{{product.name}}</h4>
-    <img src="{{ product.image.url }}" alt="Image">
-    <p>{{product.description}}</p>
-    <span>{{product.price}}</span>
-    
+    <div class="order-container">
+        <h1>Order Details</h1>
+        
+        <h4>Order Number: {{ orders.order_Number }}</h4>
+        
+        <h2>Products:</h2>
+        {% if cart_products %}
+            <ul class="product-list">
+                {% for product in cart_products %}
+                    <li class="product-item">
+                        <div class="product-info">
+                            <h4 class="product-name">{{ product.name }}</h4>
+                            <span class="product-price">Price: ${{ product.price }}</span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="total-amount">Total Amount: ${{ total_amount }}</p>
+        {% else %}
+            <p>Your order is empty.</p>
+        {% endif %}
+
+        <div class="choose-payment-container">
+            <h2>Choose Payment Method:</h2>
+            <form method="POST" action="{% url 'payment_process_view' 1 %}">
+                {% csrf_token %}
+                <label for="payment_method">Payment Method:</label>
+                <select name="payment_method" id="payment_method">
+                    <option value="Mpesa">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <!-- Add more payment options here -->
+                </select>
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

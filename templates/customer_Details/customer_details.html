@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Customer and Product Details</title>
+    {% load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/customer_details.css' %}">
 </head>
 <body>
-    <img src="{{ customer.image.url }}" alt="Image">
-    <h4>{{customer.first_Name}}</h4>
-    <p>{{customer.phone_Number}}</p>
-    <p>{{customer.email}}</p>
-    <p>{{customer.address}}</p>
-    <p>{{customer.date_created}}</p>
-    <p>{{customer.date_updated}}</p>
-    <p>{{product.description}}</p>
-    <span>{{product.price}}</span>
+    <div class="details-container">
+        <img class="customer-image" src="{{ customer.image.url }}" alt="Customer Image">
+        <h4 class="customer-name">{{ customer.first_Name }}</h4>
+        <p class="customer-info">{{ customer.phone_Number }}</p>
+        <p class="customer-info">{{ customer.email }}</p>
+        <p class="customer-info">{{ customer.address }}</p>
+        <p class="customer-info">Created: {{ customer.date_created }}</p>
+        <p class="customer-info">Updated: {{ customer.date_updated }}</p>
+        <a href="{% url 'customer_edit_view' customer.id %}"><button class="edit-button">Edit Details</button></a>
 
+    </div>
 </body>
 </html>
 

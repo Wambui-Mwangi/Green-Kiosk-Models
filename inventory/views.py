@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import ProductUploadForm
 from inventory.models import Product
+from Ratings.models import Reviews
 from django.shortcuts import redirect
 
 #there are class based views and function based views
@@ -20,7 +21,17 @@ def upload_product(request):                      #the request represents a http
 
 def products_list(request):
     products = Product.objects.all()
-    return render (request, "inventory/products_list.html", {"products": products})
+    product_ratings = {}
+    for product in products:
+        ratings = Reviews.objects.filter(product=product)
+        product_ratings[product.id] = ratings
+
+    context = {
+        'products':products,
+        'product_ratings': product_ratings
+    }
+
+    return render (request, "inventory/products_list.html", context)
 
 def product_detail(request, id):
     product = Product.objects.get(id=id)

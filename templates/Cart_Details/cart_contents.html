@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Contents</title>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart_contents.css' %}">
+</head>
+<body>
+    <div class="cart-contents-container">
+        <h1 class="cart-title">Your Cart Contents</h1>
+        
+        {% if cart_products %}
+            <ul class="product-list">
+                {% for product in cart_products %}
+                    <li class="product-item">
+                        <img class="product-image" src="{{ product.image.url }}" alt="Product Image">
+                        <span class="product-info">{{ product.name }} - ${{ product.price }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="cart-total">Total: ${{ total_price }}</p>
+        {% else %}
+            <p class="empty-cart-message">Your cart is empty.</p>
+        {% endif %}
+        
+        <a href="{% url 'products_list_view' %}" class="continue-shopping-button">Continue Shopping</a>
+        <a href="{% url 'orders_list_view' 1 %}" class="checkout-button">Check Out</a>
+    </div>
+</body>
+</html>

@@ -1,10 +1,12 @@
 from django.db import models
 from inventory.models import Product
 from customer_Details.models import User
+# from Order_Details.models import Order
 
 # Create your models here.
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # order = models.ForeignKey(Order, on_delete=models.CASCADE)
     id = models.AutoField(primary_key=True)
     product = models.CharField(max_length=32)
     products = models.ManyToManyField(Product)

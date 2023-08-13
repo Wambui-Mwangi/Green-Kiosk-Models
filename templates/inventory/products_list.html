@@ -17,6 +17,15 @@
                 <img class="product-image" src="{{ product.image.url }}" alt="Image">
                 <p class="product-description">{{ product.description }}</p>
                 <span class="product-price">Price: ${{ product.price }}</span>
+
+                <div>
+                    {% for rating in product_ratings.product.id %}
+                        Rating: {{ rating.rating }}
+                    {% empty %}
+                        No ratings yet.
+                    {% endfor %}
+                </div>
+                
                 <a href="{% url 'product_detail_view' id=product.id %}" class="view-product-link">View Product</a>
                 <a href="{% url 'product_edit_view' id=product.id %}" class="view-product-link">Edit Product</a>
 

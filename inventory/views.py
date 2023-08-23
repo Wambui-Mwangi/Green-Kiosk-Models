@@ -12,12 +12,13 @@ def upload_product(request):                      #the request represents a http
         uploaded_product = request.FILES["image"]
         form = ProductUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product=form.save()
+            return redirect('product_detail_view', id=product.id)
     else:
         form = ProductUploadForm()
 
     return render(request, "inventory/product_upload.html", {"form": form})
-
+    
 
 def products_list(request):
     products = Product.objects.all()

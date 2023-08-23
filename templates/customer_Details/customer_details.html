@@ -6,8 +6,12 @@
     <title>Customer and Product Details</title>
     {% load static%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/customer_details.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% include 'navbar.html'%}
     <div class="details-container">
         <img class="customer-image" src="{{ customer.image.url }}" alt="Customer Image">
         <h4 class="customer-name">{{ customer.first_Name }}</h4>

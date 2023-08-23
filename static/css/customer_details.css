@@ -3,6 +3,7 @@ body {
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+    font-family: 'Karla', sans-serif;
 }
 
 .details-container {
@@ -15,8 +16,7 @@ body {
 }
 
 .customer-image {
-    max-width: 100px;
-    border-radius: 50%;
+    max-width: 500px;
     margin-bottom: 10px;
 }
 

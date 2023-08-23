@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer and Product Details</title>
+    <title>Vendor Details</title>
     {% load static%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/customer_details.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% include 'navbar.html'%}
     <div class="details-container">
-        <img class="customer-image" src="{{ customer.image.url }}" alt="Customer Image">
-        <h4 class="customer-name">{{ customer.first_Name }}</h4>
-        <p class="customer-info">{{ customer.phone_Number }}</p>
-        <p class="customer-info">{{ customer.email }}</p>
-        <p class="customer-info">{{ customer.address }}</p>
-        <p class="customer-info">Created: {{ customer.date_created }}</p>
-        <p class="customer-info">Updated: {{ customer.date_updated }}</p>
-        <a href="{% url 'vendor_edit_view' customer.id %}"><button class="edit-button">Edit Details</button></a>
-
+        <img class="customer-image" src="{{ vendor.image.url }}" alt="Customer Image">
+        <h4 class="customer-name">{{ vendor.store_name }}</h4>
+        <p class="customer-info">{{ vendor.vendor_Name }}</p>
+        <p class="customer-info">{{ vendor.email }}</p>
+        <p class="customer-info">{{ vendor.location }}</p>
+        <p class="customer-info">{{ vendor.password }}</p>
+        <p class="customer-info">Created: {{ vendor.date_created }}</p>
+        <p class="customer-info">Updated: {{ vendor.date_updated }}</p>
+        <a href="{% url 'vendor_edit_view' vendor.id %}"><button class="edit-button">Edit Details</button></a>
+        <a href="{% url 'product_upload_view' %}"><button>Upload Product</button></a>
+        
     </div>
 </body>
 </html>

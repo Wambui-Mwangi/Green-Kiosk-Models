@@ -1,3 +1,6 @@
+*{
+    font-family: 'Karla', sans-serif;
+}
 .edit-customer-container {
     max-width: 400px;
     margin: 0 auto;

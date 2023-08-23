@@ -6,11 +6,14 @@
     <title>Order Details</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/orders_list.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% include 'navbar.html'%}
     <div class="order-container">
-        <h1>Order Details</h1>
-        
+        <h1>Order Summary</h1>
         <h4>Order Number: {{ orders.order_Number }}</h4>
         
         <h2>Products:</h2>
@@ -36,10 +39,8 @@
                 {% csrf_token %}
                 <label for="payment_method">Payment Method:</label>
                 <select name="payment_method" id="payment_method">
-                    <option value="Mpesa">Credit Card</option>
-                    <option value="Debit Card">Debit Card</option>
-                    <option value="paypal">PayPal</option>
-                    <!-- Add more payment options here -->
+                    <option value="Mpesa">Mpesa</option>
+                    <option value="Debit Card">Cash</option>
                 </select>
                 <button type="submit">Proceed to Payment</button>
             </form>

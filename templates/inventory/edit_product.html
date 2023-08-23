@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 </head>
 <body>
     <h3>Edit Product</h3>
+    {% include 'navbar.html'%}
     <form method="POST" class="upload_form" enctype="multipart/form-data">
         {%csrf_token%}                          
         {{form.as_p}}

@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Contents</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     {%load static%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/cart_contents.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    {% include 'navbar.html'%}
     <div class="cart-contents-container">
-        <h1 class="cart-title">Your Cart Contents</h1>
+        <h1 class="cart-title">My Cart</h1>
         
         {% if cart_products %}
             <ul class="product-list">
@@ -17,6 +24,13 @@
                     <li class="product-item">
                         <img class="product-image" src="{{ product.image.url }}" alt="Product Image">
                         <span class="product-info">{{ product.name }} - ${{ product.price }}</span>
+                        <div class="delete">
+                            <a href="{% url 'remove_from_cart_view' product.id %}">
+                                <i class="fas fa-trash fa-lg" style="color: #46790f;"></i> <!-- Change color to red -->
+                            </a>
+                            
+                            
+                        </div>
                     </li>
                 {% endfor %}
             </ul>

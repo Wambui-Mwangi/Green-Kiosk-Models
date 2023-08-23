@@ -1,0 +1,41 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+    font-family: 'Karla', sans-serif;
+}
+
+.navbar {
+    background-color: #74B72E;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    font-size: 20px;
+    
+}
+
+.nav-menu li {
+    margin-right: 20px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #D8BCAB; 
+}

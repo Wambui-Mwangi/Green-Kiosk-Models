@@ -5,10 +5,11 @@ from vendor_Details.models import Vendor
 # Create your views here.
 def register_vendor(request):                   
     if request.method == 'POST':
-        # uploaded_vendor = request.FILES["image"]
+        uploaded_vendor = request.FILES["image"]
         form = VendorUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            vendor=form.save()
+            return redirect('vendor_detail_view', id=vendor.id)
     else:
         form = VendorUploadForm()
 
@@ -29,3 +30,5 @@ def edit_vendor(request, id):
     else:
         form=VendorUploadForm(instance=product)
         return render (request, 'vendor_Details/edit_vendor.html', {"form":form}) 
+   
+   

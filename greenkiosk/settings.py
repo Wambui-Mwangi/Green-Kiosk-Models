@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'Alerts',
     'Ratings',
     'Delivery',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
